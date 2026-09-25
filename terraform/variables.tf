@@ -8,7 +8,7 @@ variable "prefix" {
 # Azure target region
 variable "location" {
   type        = string
-  default     = "westeurope"
+  default     = "swedencentral"
   description = "Primary Azure region for deployment."
 }
 
