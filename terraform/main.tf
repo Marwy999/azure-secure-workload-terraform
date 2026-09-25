@@ -10,6 +10,14 @@ terraform {
       version = "~> 3.5.0"
     }
   }
+
+  # Configurazione Remote Backend (salva lo stato su Azure invece che sul runner locale)
+  backend "azurerm" {
+    resource_group_name  = "rg-tfstate-dev"
+    storage_account_name = "sttfstatesecapp9278" # Deve contenere solo lettere minuscole e numeri
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
 }
 
 # Azure Provider configuration
