@@ -12,6 +12,7 @@ jobs:
     name: "Terraform Format, Init & Plan"
     runs-on: ubuntu-latest
 
+    # Credenziali Azure trasmesse a tutti gli step per il Remote Backend
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
@@ -32,7 +33,7 @@ jobs:
         working-directory: ./terraform
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -input=false
         working-directory: ./terraform
 
       - name: Terraform Validate
